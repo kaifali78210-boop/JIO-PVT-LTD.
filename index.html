@@ -3,183 +3,451 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jio PVT LTD</title>
+<meta name="theme-color" content="#080a0d">
+<title>Jio PVT LTD - Home</title>
 
 <style>
 *{box-sizing:border-box}
+:root{
+  --gold:#ffd000;
+  --yellow:#ffbd00;
+  --black:#080a0d;
+  --card:#13161b;
+  --white:#fff;
+}
 body{
- margin:0;
- font-family:Arial,sans-serif;
- background:#fff8dc;
- color:#222;
-}
-header{
- background:#e4b900;
- color:#222;
- text-align:center;
- padding:20px;
- font-size:25px;
- font-weight:bold;
-}
-.container{max-width:600px;margin:auto;padding:15px}
-.box{
- background:white;
- border-radius:12px;
- padding:18px;
- margin:15px 0;
- box-shadow:0 2px 8px #0002;
-}
-input{
- width:100%;
- padding:13px;
- margin:8px 0;
- border:1px solid #ccc;
- border-radius:7px;
- font-size:16px;
-}
-button{
- padding:12px;
- border:0;
- border-radius:7px;
- background:#d5a900;
- color:#222;
- font-weight:bold;
- cursor:pointer;
-}
-.full{width:100%;margin:5px 0}
-.secondary{background:#eee}
-.tabs{display:flex;gap:10px;margin:15px 0}
-.tab{flex:1;padding:13px;background:#eee}
-.tab.active{background:#d5a900}
-.plan{
- background:#e8c300;
- border-radius:12px;
- padding:18px;
- margin:15px 0;
-}
-.plan h3{margin-top:0}
-.price{font-size:25px;font-weight:bold}
-.small{font-size:12px;color:#555}
-#message{white-space:pre-wrap;color:#a00}
-nav{
- position:sticky;
- bottom:0;
- background:white;
- padding:12px;
- display:flex;
- justify-content:space-around;
- box-shadow:0 -2px 6px #0002;
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:var(--black);
+  color:var(--white);
 }
 .hidden{display:none!important}
+header{
+  background:#080b10;
+  border-bottom:2px solid var(--gold);
+  padding:17px 14px;
+}
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-size:23px;
+  font-weight:900;
+}
+.logo{font-size:38px;color:var(--gold)}
+.brand span{color:var(--gold)}
+.account-top{
+  font-size:13px;
+  margin-top:8px;
+  color:#ddd;
+}
+.topnav{
+  display:flex;
+  background:#090b10;
+  border-bottom:1px solid #574600;
+}
+.topnav button{
+  flex:1;
+  background:transparent;
+  color:white;
+  border-radius:0;
+  padding:15px 2px;
+  font-size:12px;
+  border-bottom:3px solid transparent;
+}
+.topnav button.active{
+  color:var(--gold);
+  border-bottom-color:var(--gold);
+}
+button{
+  font-family:inherit;
+  cursor:pointer;
+}
+.container{
+  max-width:600px;
+  margin:auto;
+  padding:15px;
+}
+.box{
+  background:#fff;
+  color:#222;
+  border-radius:13px;
+  padding:18px;
+  margin:15px 0;
+  box-shadow:0 3px 12px #0002;
+}
+input{
+  width:100%;
+  padding:13px;
+  margin:8px 0;
+  border:1px solid #ccc;
+  border-radius:7px;
+  font-size:16px;
+}
+.btn{
+  padding:13px;
+  border:0;
+  border-radius:8px;
+  background:var(--gold);
+  color:#171200;
+  font-weight:bold;
+}
+.full{width:100%;margin:5px 0}
+.secondary{background:#eee;color:#222}
+#message{white-space:pre-wrap;color:#a00;font-size:14px}
+
+/* HOME PAGE */
+.hero{
+  padding:22px 14px 30px;
+  background:
+    radial-gradient(ellipse at 50% 40%,
+    #ffed00 0%,#ffc000 48%,#b77c00 100%);
+  position:relative;
+  overflow:hidden;
+}
+.important{
+  display:inline-block;
+  background:var(--gold);
+  color:#171200;
+  padding:13px 17px;
+  border-radius:12px;
+  font-size:18px;
+  font-weight:900;
+  margin-bottom:16px;
+  box-shadow:0 5px 16px #5a400055;
+}
+.note{
+  position:relative;
+  z-index:1;
+  padding:22px 18px;
+  border:3px solid var(--gold);
+  border-radius:22px;
+  background:linear-gradient(145deg,#191b1f,#050608);
+  box-shadow:0 12px 25px #54390066;
+}
+.note h2{
+  color:var(--gold);
+  font-size:28px;
+  margin:0 0 14px;
+}
+.note p{
+  font-size:18px;
+  line-height:1.55;
+  font-weight:600;
+  margin:0;
+  overflow-wrap:anywhere;
+}
+.highlight{color:var(--gold)}
+.tower{
+  text-align:center;
+  font-size:90px;
+  color:#352600;
+  text-shadow:0 0 15px #ffe000;
+  padding:15px 0 0;
+}
+.home-actions{
+  background:linear-gradient(#090b0e,#121419);
+  padding:25px 16px;
+}
+.action{
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  padding:20px 15px;
+  margin:0 0 17px;
+  color:#fff;
+  background:linear-gradient(140deg,#17191d,#050607);
+  border:3px solid var(--gold);
+  border-radius:23px;
+  font-size:23px;
+  font-weight:bold;
+  box-shadow:0 0 13px #80600044;
+}
+.action:active{transform:scale(.98)}
+.action-icon,.arrow{color:var(--gold);font-size:34px}
+.features{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  background:#090b0e;
+  padding:20px 3px 30px;
+}
+.feature{
+  text-align:center;
+  padding:7px 3px;
+  border-right:1px solid #6c5500;
+}
+.feature:last-child{border:0}
+.feature-icon{font-size:27px;color:var(--gold)}
+.feature p{font-size:11px;line-height:1.5;margin:9px 0 0}
+.disclaimer{
+  background:#17191d;
+  color:#ddd;
+  padding:15px;
+  font-size:12px;
+  line-height:1.6;
+}
+
+/* PLANS */
+.tabs{display:flex;gap:10px;margin:15px 0}
+.tab{
+  flex:1;
+  padding:13px 5px;
+  background:#eee;
+  color:#222;
+  border:0;
+  border-radius:8px;
+}
+.tab.active{background:var(--gold)}
+.plan{
+  background:#e8c300;
+  color:#302600;
+  border-radius:13px;
+  padding:19px;
+  margin:15px 0;
+}
+.plan h3{margin-top:0;font-size:21px}
+.plan p{line-height:1.5}
+.plan .btn{background:#d7a800;width:100%}
+.small{font-size:12px;line-height:1.5;color:#555}
+
+/* ACCOUNT */
+#accountView .box{overflow-wrap:anywhere}
+footer{
+  text-align:center;
+  background:#090b0e;
+  color:#aaa;
+  padding:17px 8px;
+  font-size:12px;
+}
+.bottomnav{
+  position:sticky;
+  bottom:0;
+  z-index:10;
+  display:flex;
+  background:#fff;
+  box-shadow:0 -3px 12px #0003;
+  padding:8px 4px calc(8px + env(safe-area-inset-bottom));
+}
+.bottomnav button{
+  flex:1;
+  padding:10px 2px;
+  background:transparent;
+  color:#666;
+  border:0;
+  font-size:14px;
+}
+.bottomnav button.active{
+  color:#9b7400;
+  font-weight:bold;
+}
+@media(min-width:650px){
+  body{
+    max-width:480px;
+    margin:auto;
+    border-left:1px solid #393000;
+    border-right:1px solid #393000;
+  }
+}
 </style>
 </head>
 
 <body>
 
-<header>Jio PVT LTD</header>
+<header>
+  <div class="brand">
+    <div class="logo">⬡</div>
+    <div>PROJECT <span>PORTAL</span></div>
+  </div>
+  <div class="account-top" id="topEmail">Please login to continue</div>
+</header>
 
-<div class="container">
+<!-- Login and registration -->
+<div class="container" id="loginBox">
+  <div class="box">
+    <h2 id="formTitle">Create Account</h2>
+    <p>Email aur password se account banao ya login karo.</p>
 
-<!-- LOGIN / REGISTER -->
-<div class="box" id="loginBox">
-<h2 id="formTitle">Create Account</h2>
-<p>Email aur password se account banao ya login karo.</p>
+    <form id="authForm">
+      <input id="email" type="email"
+        placeholder="Email address" autocomplete="email" required>
 
-<form id="authForm">
-<input id="email" type="email" placeholder="Email address"
-       autocomplete="email" required>
+      <input id="password" type="password"
+        placeholder="Password (minimum 6 characters)"
+        autocomplete="new-password" minlength="6" required>
 
-<input id="password" type="password"
-       placeholder="Password (minimum 6 characters)"
-       autocomplete="new-password" minlength="6" required>
+      <button class="btn full" type="submit" id="submitButton">
+        Register
+      </button>
+    </form>
 
-<button class="full" type="submit" id="submitButton">
-Register
-</button>
-</form>
-
-<button class="full secondary" id="toggleButton" type="button">
-Already account hai? Login karo
-</button>
-
-<p id="message" role="status"></p>
+    <button class="btn full secondary" id="toggleButton" type="button">
+      Already account hai? Login karo
+    </button>
+    <p id="message" role="status"></p>
+  </div>
 </div>
 
-<!-- MAIN WEBSITE -->
+<!-- Main website -->
 <div id="mainApp" class="hidden">
 
-<div class="box">
-<h3>Welcome!</h3>
-<p id="userEmail"></p>
-<button id="logoutButton" class="secondary">Logout</button>
+  <div class="topnav">
+    <button class="active" data-view="homeView">⌂ Home</button>
+    <button data-view="plansView">▤ Plans</button>
+    <button data-view="accountView">● Account</button>
+  </div>
+
+  <!-- HOME -->
+  <section id="homeView">
+
+    <div class="hero">
+      <div class="important">📢 &nbsp; IMPORTANT</div>
+
+      <div class="note">
+        <h2>NOTE:</h2>
+        <p>
+          This <span class="highlight">₹17,300 Crore</span>
+          tender has been awarded by / sourced from Jio.
+          Under this contract, land is provided on a lease
+          basis for infrastructure setup, including Wi-Fi
+          services and telecom towers.
+        </p>
+      </div>
+
+      <div class="tower" aria-hidden="true">📡</div>
+    </div>
+
+    <div class="home-actions">
+      <button class="action" id="depositButton">
+        <span class="action-icon">⇩</span>
+        <span>Deposit</span>
+        <span class="arrow">➜</span>
+      </button>
+
+      <button class="action" id="withdrawButton">
+        <span class="action-icon">⇧</span>
+        <span>Withdrawal</span>
+        <span class="arrow">➜</span>
+      </button>
+    </div>
+
+    <div class="features">
+      <div class="feature">
+        <div class="feature-icon">🛡</div>
+        <p>Secure<br>Transactions</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">ϟ</div>
+        <p>Fast<br>Processing</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">🎧</div>
+        <p>24/7<br>Support</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">📡</div>
+        <p>Reliable<br>Network</p>
+      </div>
+    </div>
+
+    <div class="disclaimer">
+      <strong>Information notice:</strong>
+      The tender statement above has not been independently
+      verified. This demo page does not process deposits,
+      withdrawals or investments. No income is guaranteed.
+      This page does not imply endorsement by Reliance Jio.
+    </div>
+
+  </section>
+
+  <!-- PLANS -->
+  <section id="plansView" class="container hidden">
+
+    <div class="box">
+      <h2>Our Plans</h2>
+      <p>View the demonstration plan information below.</p>
+    </div>
+
+    <div class="tabs">
+      <button class="tab active" data-plan="daily">☆ Daily Plan</button>
+      <button class="tab" data-plan="welfare">● Welfare Plan</button>
+    </div>
+
+    <div id="daily">
+
+      <div class="plan">
+        <h3>VIP A — Daily Plan</h3>
+        <p>Demo Plan</p>
+        <p>Price: ₹650</p>
+        <p>Duration: 5 days</p>
+        <p>Illustrative daily amount: ₹1,170</p>
+        <p>Illustrative total amount: ₹5,850</p>
+        <button class="btn invest" data-name="VIP A" data-price="650">
+          View Plan
+        </button>
+      </div>
+
+      <div class="plan">
+        <h3>VIP B — Daily Plan</h3>
+        <p>Demo Plan</p>
+        <p>Price: ₹970</p>
+        <p>Duration: 7 days</p>
+        <p>Illustrative daily amount: ₹1,430</p>
+        <p>Illustrative total amount: ₹10,010</p>
+        <button class="btn invest" data-name="VIP B" data-price="970">
+          View Plan
+        </button>
+      </div>
+
+      <div class="plan">
+        <h3>VIP C — Daily Plan</h3>
+        <p>Demo Plan</p>
+        <p>Price: ₹1,690</p>
+        <p>Duration: 10 days</p>
+        <p>Illustrative daily amount: ₹2,345</p>
+        <p>Illustrative total amount: ₹23,450</p>
+        <button class="btn invest" data-name="VIP C" data-price="1690">
+          View Plan
+        </button>
+      </div>
+
+    </div>
+
+    <div id="welfare" class="hidden">
+      <div class="box">
+        <h3>Welfare Plan</h3>
+        <p>Demo information section.</p>
+        <p>No payment or investment is enabled on this website.</p>
+      </div>
+    </div>
+
+    <div class="box small">
+      Displayed amounts are illustrative, not promises or guarantees
+      of income. Review and verify any plan before making financial
+      decisions.
+    </div>
+
+  </section>
+
+  <!-- ACCOUNT -->
+  <section id="accountView" class="container hidden">
+    <div class="box">
+      <h2>My Account</h2>
+      <p>Logged in email:</p>
+      <p id="userEmail"></p>
+      <button class="btn full secondary" id="logoutButton">Logout</button>
+    </div>
+  </section>
+
 </div>
 
-<div class="tabs">
-<button class="tab active" data-plan="daily">☆ Daily Plan</button>
-<button class="tab" data-plan="welfare">☻ Welfare Plan</button>
-</div>
+<footer>© 2026 Project Portal | Demo Website</footer>
 
-<div id="daily">
-
-<div class="plan">
-<h3>VIP A — Daily Plan</h3>
-<p>Demo Plan</p>
-<p>Price: ₹650</p>
-<p>Duration: 5 days</p>
-<p>Illustrative daily amount: ₹1,170</p>
-<p>Illustrative total amount: ₹5,850</p>
-<button class="full invest" data-name="VIP A" data-price="650">
-View Plan
-</button>
-</div>
-
-<div class="plan">
-<h3>VIP B — Daily Plan</h3>
-<p>Demo Plan</p>
-<p>Price: ₹970</p>
-<p>Duration: 7 days</p>
-<p>Illustrative daily amount: ₹1,430</p>
-<p>Illustrative total amount: ₹10,010</p>
-<button class="full invest" data-name="VIP B" data-price="970">
-View Plan
-</button>
-</div>
-
-<div class="plan">
-<h3>VIP C — Daily Plan</h3>
-<p>Demo Plan</p>
-<p>Price: ₹1,690</p>
-<p>Duration: 10 days</p>
-<p>Illustrative daily amount: ₹2,345</p>
-<p>Illustrative total amount: ₹23,450</p>
-<button class="full invest" data-name="VIP C" data-price="1690">
-View Plan
-</button>
-</div>
-
-</div>
-
-<div id="welfare" class="hidden">
-<div class="box">
-<h3>Welfare Plan</h3>
-<p>Demo information section.</p>
-<p>No payment or investment is enabled on this website.</p>
-</div>
-</div>
-
-<p class="small">
-Demo website only. Displayed amounts are illustrative and are not
-promises or guarantees of income. This website is not affiliated
-with or endorsed by Reliance Jio.
-</p>
-
-</div>
-</div>
-
-<nav>
-<span>Home</span>
-<span>Plans</span>
-<span>Account</span>
+<nav class="bottomnav hidden" id="bottomNav">
+  <button class="active" data-view="homeView">⌂<br>Home</button>
+  <button data-view="plansView">▤<br>Plans</button>
+  <button data-view="accountView">●<br>Account</button>
 </nav>
 
 <script type="module">
@@ -187,122 +455,165 @@ import { initializeApp } from
 "https://www.gstatic.com/firebasejs/13.1.0/firebase-app.js";
 
 import {
- getAuth,
- createUserWithEmailAndPassword,
- signInWithEmailAndPassword,
- onAuthStateChanged,
- signOut
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  onAuthStateChanged,
+  signOut
 } from "https://www.gstatic.com/firebasejs/13.1.0/firebase-auth.js";
 
 const firebaseConfig = {
- apiKey: "AIzaSyBDx0kPq2gBgm0Alcx-6IJ8Et8CR8soSTQ",
- authDomain: "jio-pvt-ltd.firebaseapp.com",
- projectId: "jio-pvt-ltd",
- storageBucket: "jio-pvt-ltd.firebasestorage.app",
- messagingSenderId: "1038996963616",
- appId: "1:1038996963616:web:4f8017b527348dd995d745",
- measurementId: "G-MYSCD2Q1YB"
+  apiKey: "AIzaSyBDx0kPq2gBgm0Alcx-6IJ8Et8CR8soSTQ",
+  authDomain: "jio-pvt-ltd.firebaseapp.com",
+  projectId: "jio-pvt-ltd",
+  storageBucket: "jio-pvt-ltd.firebasestorage.app",
+  messagingSenderId: "1038996963616",
+  appId: "1:1038996963616:web:4f8017b527348dd995d745",
+  measurementId: "G-MYSCD2Q1YB"
 };
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
-
 const $ = id => document.getElementById(id);
+
 let isRegister = true;
 
 $("toggleButton").addEventListener("click", () => {
- isRegister = !isRegister;
+  isRegister = !isRegister;
 
- $("formTitle").textContent =
-   isRegister ? "Create Account" : "Login";
+  $("formTitle").textContent =
+    isRegister ? "Create Account" : "Login";
 
- $("submitButton").textContent =
-   isRegister ? "Register" : "Login";
+  $("submitButton").textContent =
+    isRegister ? "Register" : "Login";
 
- $("password").autocomplete =
-   isRegister ? "new-password" : "current-password";
+  $("password").autocomplete =
+    isRegister ? "new-password" : "current-password";
 
- $("toggleButton").textContent =
-   isRegister
-   ? "Already account hai? Login karo"
-   : "New account banana hai? Register karo";
+  $("toggleButton").textContent = isRegister
+    ? "Already account hai? Login karo"
+    : "New account banana hai? Register karo";
 
- $("message").textContent = "";
+  $("message").textContent = "";
 });
 
 $("authForm").addEventListener("submit", async event => {
- event.preventDefault();
+  event.preventDefault();
 
- const email = $("email").value.trim();
- const password = $("password").value;
+  const email = $("email").value.trim();
+  const password = $("password").value;
 
- $("submitButton").disabled = true;
- $("message").textContent = "Please wait...";
+  $("submitButton").disabled = true;
+  $("message").textContent = "Please wait...";
 
- try {
-   if(isRegister) {
-     await createUserWithEmailAndPassword(auth, email, password);
-     $("message").textContent = "Account created successfully!";
-   } else {
-     await signInWithEmailAndPassword(auth, email, password);
-     $("message").textContent = "Login successful!";
-   }
- } catch(error) {
-   console.error(error);
+  try {
+    if (isRegister) {
+      await createUserWithEmailAndPassword(auth, email, password);
+      $("message").textContent = "Account created successfully!";
+    } else {
+      await signInWithEmailAndPassword(auth, email, password);
+      $("message").textContent = "Login successful!";
+    }
+  } catch (error) {
+    console.error(error);
 
-   const messages = {
-     "auth/email-already-in-use": "Ye email pehle se registered hai. Login karo.",
-     "auth/invalid-email": "Email address sahi nahi hai.",
-     "auth/weak-password": "Password kam se kam 6 characters ka rakho.",
-     "auth/invalid-credential": "Email ya password galat hai.",
-     "auth/network-request-failed": "Internet connection check karo."
-   };
+    const messages = {
+      "auth/email-already-in-use":
+        "Ye email pehle se registered hai. Login karo.",
+      "auth/invalid-email":
+        "Email address sahi nahi hai.",
+      "auth/weak-password":
+        "Password kam se kam 6 characters ka rakho.",
+      "auth/invalid-credential":
+        "Email ya password galat hai.",
+      "auth/network-request-failed":
+        "Internet connection check karo."
+    };
 
-   $("message").textContent =
-     messages[error.code] || "Error: " + error.message;
- } finally {
-   $("submitButton").disabled = false;
- }
+    $("message").textContent =
+      messages[error.code] || "Login/Register nahi hua. Dobara try karein.";
+  } finally {
+    $("submitButton").disabled = false;
+  }
 });
 
+/* Bottom and top navigation */
+function openView(viewId) {
+  ["homeView", "plansView", "accountView"].forEach(id => {
+    $(id).classList.toggle("hidden", id !== viewId);
+  });
+
+  document.querySelectorAll("[data-view]").forEach(button => {
+    button.classList.toggle(
+      "active",
+      button.dataset.view === viewId
+    );
+  });
+
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+document.querySelectorAll("[data-view]").forEach(button => {
+  button.addEventListener("click", () => {
+    openView(button.dataset.view);
+  });
+});
+
+/* Firebase login state */
 onAuthStateChanged(auth, user => {
- $("loginBox").classList.toggle("hidden", !!user);
- $("mainApp").classList.toggle("hidden", !user);
+  $("loginBox").classList.toggle("hidden", !!user);
+  $("mainApp").classList.toggle("hidden", !user);
+  $("bottomNav").classList.toggle("hidden", !user);
 
- if(user) {
-   $("userEmail").textContent = user.email || "";
- }
+  $("topEmail").textContent =
+    user ? user.email : "Please login to continue";
+
+  if (user) {
+    $("userEmail").textContent = user.email || "";
+    openView("homeView");
+  }
 });
 
+/* Logout */
 $("logoutButton").addEventListener("click", async () => {
- try {
-   await signOut(auth);
- } catch(error) {
-   $("message").textContent = error.message;
- }
+  try {
+    await signOut(auth);
+  } catch (error) {
+    alert("Logout nahi ho saka. Dobara try karein.");
+  }
 });
 
-document.querySelectorAll(".tab").forEach(button => {
- button.addEventListener("click", () => {
-   const daily = button.dataset.plan === "daily";
+/* Daily and Welfare plan tabs */
+document.querySelectorAll("[data-plan]").forEach(button => {
+  button.addEventListener("click", () => {
+    const isDaily = button.dataset.plan === "daily";
 
-   $("daily").classList.toggle("hidden", !daily);
-   $("welfare").classList.toggle("hidden", daily);
+    $("daily").classList.toggle("hidden", !isDaily);
+    $("welfare").classList.toggle("hidden", isDaily);
 
-   document.querySelectorAll(".tab").forEach(tab => {
-     tab.classList.toggle("active", tab === button);
-   });
- });
+    document.querySelectorAll("[data-plan]").forEach(tab => {
+      tab.classList.toggle("active", tab === button);
+    });
+  });
+});
+
+/* Demo-only actions */
+$("depositButton").addEventListener("click", () => {
+  alert("Deposit demo only hai. Payment service connect nahi hai.");
+});
+
+$("withdrawButton").addEventListener("click", () => {
+  alert("Withdrawal demo only hai. Withdrawal service connect nahi hai.");
 });
 
 document.querySelectorAll(".invest").forEach(button => {
- button.addEventListener("click", () => {
-   alert(
-     button.dataset.name +
-     "\nDemo price: ₹" + button.dataset.price +
-     "\nPayment is not enabled."
-   );
- });
+  button.addEventListener("click", () => {
+    alert(
+      button.dataset.name +
+      "\nDemo price: ₹" + button.dataset.price +
+      "\nYeh demo page hai. Payment enabled nahi hai."
+    );
+  });
 });
 </script>
 
