@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jio Products</title>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,sans-serif;background:#8b6500;color:#222}
+.app{max-width:500px;min-height:100vh;margin:auto;background:linear-gradient(180deg,#c99700,#e6b800,#b8860b);padding-bottom:90px}
+.header{padding:22px 15px;text-align:center;color:white;font-size:28px;font-weight:bold}
+.tabs{display:flex;gap:8px;margin:0 14px 20px;padding:7px;background:#ffffff38;border:1px solid #ffffff80;border-radius:20px}
+.tab{width:50%;padding:15px 4px;text-align:center;border-radius:15px;color:white;font-weight:bold;cursor:pointer}
+.tab.active{background:#ffffff38;border:1px solid white}
+.card{position:relative;margin:16px 14px;padding:20px 15px;min-height:235px;background:linear-gradient(135deg,#fff,#fffdf0);border:2px solid white;border-radius:25px;box-shadow:0 5px 12px #46320026}
+.days{position:absolute;right:0;top:0;background:#087cff;color:white;padding:12px 18px;border-radius:0 20px 0 17px;font-size:17px;font-weight:bold}
+.vip{font-size:25px;font-weight:bold;margin:14px 0 18px}
+.product-icon{float:left;width:36%;height:115px;display:flex;align-items:center;justify-content:center;font-size:60px;margin-right:12px}
+.details{overflow:hidden}
+.income-row{display:flex;justify-content:space-between;gap:8px}
+.income{flex:1;color:#159447;font-size:clamp(19px,5vw,27px);font-weight:bold;white-space:nowrap}
+.label{color:#777;font-size:12px;margin-top:5px;font-weight:bold}
+.price{clear:both;padding-top:10px;color:#873cff;font-size:24px;font-weight:bold}
+.invest{display:block;width:44%;margin:14px 0 0 auto;padding:13px 5px;border:0;border-radius:35px;color:white;background:linear-gradient(90deg,#a23cff,#7434f5);font-size:19px;font-weight:bold}
+#loginBox{max-width:400px;margin:40px auto;padding:25px;background:white;border-radius:20px;text-align:center;box-shadow:0 5px 20px #777}
+#loginBox input{width:100%;padding:13px;margin:10px 0;border:1px solid #ccc;border-radius:8px;font-size:16px}
+.login-button{width:100%;padding:13px;background:#b8860b;color:white;border:0;border-radius:8px;font-size:17px;margin-top:12px}
+#loginMessage{margin-top:14px;font-size:14px;overflow-wrap:anywhere}
+.notice{margin:14px;padding:12px;background:#fff8d7;border-radius:12px;font-size:12px;line-height:1.5}
+.bottom-nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:500px;display:flex;justify-content:space-around;padding:14px 3px 10px;background:white;border-radius:22px 22px 0 0}
+.nav-item{text-align:center;color:#888;font-size:13px}
+.nav-item span{display:block;font-size:24px;margin-bottom:5px}
+.nav-item.selected{color:#169b4b;font-weight:bold}
+</style>
+</head>
+
+<body>
+
+<!-- MOBILE OTP LOGIN -->
+<div id="loginBox">
+<h2 style="color:#b8860b">Mobile Number Login</h2>
+<p style="margin:12px 0">Enter your mobile number</p>
+
+<input id="phone" type="tel" placeholder="+91 9876543210">
+<div id="recaptcha-container"></div>
+
+<button id="sendOtp" class="login-button">Send OTP</button>
+
+<div id="otpSection" style="display:none">
+<input id="otp" type="text" inputmode="numeric" maxlength="6" placeholder="Enter 6-digit OTP">
+<button id="verifyOtp" class="login-button" style="background:#168b43">Verify OTP & Login</button>
+</div>
+
+<p id="loginMessage"></p>
+</div>
+
+<!-- MAIN WEBSITE -->
+<div class="app" id="mainApp" style="display:none">
+
+<div class="header">Products</div>
+
+<div class="tabs">
+<div class="tab active" data-plan="daily">☆ Daily Plan</div>
+<div class="tab" data-plan="welfare">☻ Welfare Plan</div>
+</div>
+
+<div id="daily">
+
+<!-- VIP A -->
+<div class="card">
+<div class="days">Days: 5</div>
+<div class="product-icon">📱</div>
+<div class="details">
+<div class="vip">VIP A</div>
+<div class="income-row">
+<div>
+<div class="income">₹1,170</div>
+<div class="label">Daily Income*</div>
+</div>
+<div>
+<div class="income">₹5,850</div>
+<div class="label">Total Income*</div>
+</div>
+</div>
+</div>
+<div class="price">Price: ₹650</div>
+<button class="invest" data-name="VIP A" data-price="650">View Plan</button>
+</div>
+
+<!-- VIP B -->
+<div class="card">
+<div class="days">Days: 7</div>
+<div class="product-icon">📡</div>
+<div class="details">
+<div class="vip">VIP B</div>
+<div class="income-row">
+<div>
+<div class="income">₹1,430</div>
+<div class="label">Daily Income*</div>
+</div>
+<div>
+<div class="income">₹10,010</div>
+<div class="label">Total Income*</div>
+</div>
+</div>
+</div>
+<div class="price">Price: ₹970</div>
+<button class="invest" data-name="VIP B" data-price="970">View Plan</button>
+</div>
+
+<!-- VIP C -->
+<div class="card">
+<div class="days">Days: 10</div>
+<div class="product-icon">📶</div>
+<div class="details">
+<div class="vip">VIP C</div>
+<div class="income-row">
+<div>
+<div class="income">₹2,345</div>
+<div class="label">Daily Income*</div>
+</div>
+<div>
+<div class="income">₹23,450</div>
+<div class="label">Total Income*</div>
+</div>
+</div>
+</div>
+<div class="price">Price: ₹1,690</div>
+<button class="invest" data-name="VIP C" data-price="1690">View Plan</button>
+</div>
+
+</div>
+
+<div id="welfare" style="display:none">
+<div class="card" style="text-align:center">
+<h2>Welfare Plan</h2>
+<p style="margin-top:12px">Welfare Plan details</p>
+</div>
+</div>
+
+<div class="notice">
+<strong>Demo Website:</strong> यह वेबसाइट Jio या Reliance की आधिकारिक वेबसाइट नहीं है। कीमतें और इनकम केवल उदाहरण हैं, वास्तविक या गारंटीड कमाई नहीं। इस वेबसाइट पर वास्तविक भुगतान या निकासी की सुविधा नहीं है।
+</div>
+
+<div class="bottom-nav">
+<div class="nav-item"><span>⌂</span>Home</div>
+<div class="nav-item selected"><span>◆</span>Products</div>
+<div class="nav-item"><span>♧</span>Promotion</div>
+<div class="nav-item"><span>◉</span>Mine</div>
+</div>
+
+</div>
+
+<!-- FIREBASE OTP SYSTEM -->
+<script type="module">
+import {initializeApp}
+from "https://www.gstatic.com/firebasejs/13.1.0/firebase-app.js";
+
+import {
+getAuth,
+RecaptchaVerifier,
+signInWithPhoneNumber,
+onAuthStateChanged,
+signOut
+} from "https://www.gstatic.com/firebasejs/13.1.0/firebase-auth.js";
+
+const firebaseConfig = {
+apiKey: "AIzaSyBDx0kPq2gBgm0Alcx-6IJ8Et8CR8soSTQ",
+authDomain: "jio-pvt-ltd.firebaseapp.com",
+projectId: "jio-pvt-ltd",
+storageBucket: "jio-pvt-ltd.firebasestorage.app",
+messagingSenderId: "1038996963616",
+appId: "1:1038996963616:web:4f8017b527348dd995d745",
+measurementId: "G-MYSCD2Q1YB"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
+const $ = id => document.getElementById(id);
+let confirmationResult = null;
+let recaptchaVerifier = null;
+
+function showMessage(text) {
+$("loginMessage").textContent = text;
+}
+
+onAuthStateChanged(auth, user => {
+$("loginBox").style.display = user ? "none" : "block";
+$("mainApp").style.display = user ? "block" : "none";
+
+if(user && !$("logoutButton")){
+const button = document.createElement("button");
+button.id = "logoutButton";
+button.textContent = "Logout";
+button.style.cssText = "position:fixed;top:8px;right:8px;z-index:9999;padding:10px;background:white;border:1px solid #aaa;border-radius:8px";
+
+button.onclick = async () => {
+await signOut(auth);
+location.reload();
+};
+
+document.body.appendChild(button);
+}
+});
+
+$("sendOtp").addEventListener("click", async () => {
+const phone = $("phone").value.trim();
+
+if(!/^\+[1-9]\d{7,14}$/.test(phone)){
+showMessage("Number +91 ke saath likho. Example: +919876543210");
+return;
+}
+
+$("sendOtp").disabled = true;
+
+try {
+if(recaptchaVerifier){
+recaptchaVerifier.clear();
+recaptchaVerifier = null;
+}
+
+recaptchaVerifier = new RecaptchaVerifier(
+auth,
+"recaptcha-container",
+{size:"normal"}
+);
+
+await recaptchaVerifier.render();
+
+confirmationResult = await signInWithPhoneNumber(
+auth,
+phone,
+recaptchaVerifier
+);
+
+$("otpSection").style.display = "block";
+showMessage("OTP SMS bhej diya gaya hai. Messages check karo.");
+
+} catch(error) {
+console.error(error);
+showMessage("OTP nahi bheja gaya: " + error.message);
+
+if(recaptchaVerifier){
+recaptchaVerifier.clear();
+recaptchaVerifier = null;
+}
+} finally {
+$("sendOtp").disabled = false;
+}
+});
+
+$("verifyOtp").addEventListener("click", async () => {
+const otp = $("otp").value.trim();
+
+if(!confirmationResult){
+showMessage("Pehle Send OTP dabao.");
+return;
+}
+
+if(!/^\d{6}$/.test(otp)){
+showMessage("6 digit OTP daalo.");
+return;
+}
+
+try {
+await confirmationResult.confirm(otp);
+showMessage("Login successful!");
+} catch(error) {
+console.error(error);
+showMessage("OTP galat hai ya expire ho gaya. Dobara check karo.");
+}
+});
+
+document.querySelectorAll(".tab").forEach(tab => {
+tab.addEventListener("click", () => {
+const daily = tab.dataset.plan === "daily";
+
+$("daily").style.display = daily ? "block" : "none";
+$("welfare").style.display = daily ? "none" : "block";
+
+document.querySelectorAll(".tab").forEach(t =>
+t.classList.toggle("active", t === tab)
+);
+});
+});
+
+document.querySelectorAll(".invest").forEach(button => {
+button.addEventListener("click", () => {
+alert(
+button.dataset.name +
+" — Price: ₹" + button.dataset.price +
+"\nDemo only. Payment is not enabled."
+);
+});
+});
+</script>
+
+</body>
+</html>
