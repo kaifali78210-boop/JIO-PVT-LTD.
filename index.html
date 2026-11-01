@@ -2067,8 +2067,42 @@ document
 ========================= */
 
 
-$("depositButton").addEventListener("click", async () => {
-  const amount = prompt("Deposit amount (₹) enter karo:");
+/* =========================
+   DEPOSIT PAGE
+========================= */
+
+$("depositButton").addEventListener("click", () => {
+  document.querySelectorAll("#mainApp > section")
+    .forEach(section => section.classList.add("hidden"));
+
+  $("depositView").classList.remove("hidden");
+});
+
+/* SELECT AMOUNT */
+
+document.querySelectorAll(".deposit-choice")
+.forEach(button => {
+  button.addEventListener("click", () => {
+    $("depositAmount").value = button.dataset.amount;
+
+    document.querySelectorAll(".deposit-choice")
+      .forEach(b => b.classList.remove("selected"));
+
+    button.classList.add("selected");
+  });
+});
+
+/* BACK TO HOME */
+
+$("depositBackHome").addEventListener("click", () => {
+  $("depositView").classList.add("hidden");
+  $("homeView").classList.remove("hidden");
+});
+
+/* RAZORPAY PAYMENT */
+
+$("proceedDeposit").addEventListener("click", async () => {
+  const amount = $("depositAmount").value.trim();
 
   if (!amount || !/^\d+(\.\d{1,2})?$/.test(amount)) {
     alert("Sahi amount enter karo.");
@@ -2088,17 +2122,17 @@ $("depositButton").addEventListener("click", async () => {
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ amount: Math.round(rupees * 100) })
+        body: JSON.stringify({
+          amount: Math.round(rupees * 100)
+        })
       }
     );
 
-const order = await response.json();
+    const order = await response.json();
 
-if (!response.ok || !order.id || !order.keyId) {
-  throw new Error(
-    order.error || "Order create nahi hua."
-  );
-}
+    if (!response.ok || !order.id || !order.keyId) {
+      throw new Error(order.error || "Order create nahi hua.");
+    }
 
     const payment = new Razorpay({
       key: order.keyId,
@@ -2107,7 +2141,8 @@ if (!response.ok || !order.id || !order.keyId) {
       order_id: order.id,
       name: "JIO PVT LTD",
       description: "Deposit Payment",
-      handler: async function (result) {
+
+      handler: async function(result) {
         const verifyResponse = await fetch(
           "https://kaif-payment-backend.onrender.com/verify-payment",
           {
@@ -2125,25 +2160,27 @@ if (!response.ok || !order.id || !order.keyId) {
           alert("Payment verification failed. Balance update nahi hua.");
         }
       },
+
       modal: {
-        ondismiss: function () {
+        ondismiss: function() {
           alert("Payment cancel ho gaya.");
         }
       },
+
       theme: { color: "#D4AF37" }
     });
 
-    payment.on("payment.failed", function () {
+    payment.on("payment.failed", function() {
       alert("Payment fail hua. Dobara try karo.");
     });
 
     payment.open();
+
   } catch (error) {
     alert("Payment error: " + error.message);
   }
 });
   
-
 
 
 /* OPEN BANK WITHDRAWAL PAGE */
