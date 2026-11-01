@@ -1361,6 +1361,45 @@ iframe {
   </div>
 
 </section>
+
+<!-- DEPOSIT PAGE -->
+
+<section id="depositView" class="hidden">
+  <div class="container">
+    <div class="box">
+
+      <h2 style="color:#9b7400;">💳 Deposit</h2>
+
+      <label>Enter Amount (₹)</label>
+
+      <input
+        type="number"
+        id="depositAmount"
+        placeholder="Enter amount"
+        min="1"
+        max="100000"
+      >
+
+      <p><b>Select Amount</b></p>
+
+      <div class="deposit-options">
+        <button type="button" class="deposit-choice" data-amount="300">₹300</button>
+        <button type="button" class="deposit-choice" data-amount="500">₹500</button>
+        <button type="button" class="deposit-choice" data-amount="1000">₹1,000</button>
+        <button type="button" class="deposit-choice" data-amount="1500">₹1,500</button>
+      </div>
+
+      <button type="button" class="btn full" id="proceedDeposit">
+        PROCEED TO PAYMENT
+      </button>
+
+      <button type="button" class="btn full secondary" id="depositBackHome">
+        ← Back to Home
+      </button>
+
+    </div>
+  </div>
+</section>
   
   <!-- =========================
        ACCOUNT
