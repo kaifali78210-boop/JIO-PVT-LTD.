@@ -2054,17 +2054,25 @@ if (!response.ok || !order.id || !order.keyId) {
   
 
 
-$("withdrawButton")
-.addEventListener(
-  "click",
-  () => {
-
-    alert(
-      "Withdrawal demo only hai. Withdrawal service connect nahi hai."
-    );
-
+document.getElementById("withdrawButton")
+.addEventListener("click", () => {
+  const amount = prompt("Withdrawal Amount (₹) डालें:");
+  if (!amount || !Number.isFinite(Number(amount)) || Number(amount) <= 0) {
+    alert("Valid amount डालें");
+    return;
   }
-);
+
+  const holder = prompt("Account Holder Name डालें:");
+  if (!holder) return;
+
+  const account = prompt("Bank Account Number डालें:");
+  if (!account) return;
+
+  const ifsc = prompt("IFSC Code डालें:");
+  if (!ifsc) return;
+
+  alert("Details collected. अभी असली withdrawal submit नहीं हुई है।");
+});
 
 
 /* =========================
