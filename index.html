@@ -1271,6 +1271,97 @@ iframe {
   </section>
 
 
+<!-- BANK WITHDRAWAL PAGE -->
+
+<section id="withdrawView" class="hidden">
+
+  <div class="container">
+
+    <div class="box">
+
+      <h2 style="color:#9b7400;">
+        🏦 Bank Withdrawal
+      </h2>
+
+      <p>Enter your bank details carefully.</p>
+
+      <form id="withdrawForm">
+
+        <label>Account Holder Name</label>
+
+        <input
+          type="text"
+          id="holderName"
+          placeholder="Enter account holder name"
+          required
+        >
+
+        <label>Bank Account Number</label>
+
+        <input
+          type="text"
+          id="accountNumber"
+          placeholder="Enter account number"
+          inputmode="numeric"
+          pattern="[0-9]{6,20}"
+          required
+        >
+
+        <label>Confirm Account Number</label>
+
+        <input
+          type="text"
+          id="confirmAccount"
+          placeholder="Confirm account number"
+          inputmode="numeric"
+          required
+        >
+
+        <label>IFSC Code</label>
+
+        <input
+          type="text"
+          id="ifsc"
+          placeholder="Enter IFSC code"
+          maxlength="11"
+          required
+        >
+
+        <label>Withdrawal Amount (₹)</label>
+
+        <input
+          type="number"
+          id="withdrawAmount"
+          placeholder="Enter amount"
+          min="1"
+          required
+        >
+
+        <button
+          class="btn full"
+          type="submit"
+        >
+          SUBMIT WITHDRAWAL REQUEST
+        </button>
+
+        <button
+          class="btn full secondary"
+          type="button"
+          id="backHome"
+        >
+          ← Back to Home
+        </button>
+
+        <p id="withdrawMessage"></p>
+
+      </form>
+
+    </div>
+
+  </div>
+
+</section>
+  
   <!-- =========================
        ACCOUNT
   ========================= -->
