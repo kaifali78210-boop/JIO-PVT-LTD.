@@ -2054,26 +2054,74 @@ if (!response.ok || !order.id || !order.keyId) {
   
 
 
+
+/* OPEN BANK WITHDRAWAL PAGE */
+
 document.getElementById("withdrawButton")
-.addEventListener("click", () => {
-  const amount = prompt("Withdrawal Amount (₹) डालें:");
-  if (!amount || !Number.isFinite(Number(amount)) || Number(amount) <= 0) {
-    alert("Valid amount डालें");
+.addEventListener("click", function() {
+
+  document.querySelectorAll(
+    "#mainApp > section"
+  ).forEach(section => {
+    section.classList.add("hidden");
+  });
+
+  document.getElementById("withdrawView")
+    .classList.remove("hidden");
+
+});
+
+/* BACK TO HOME */
+
+document.getElementById("backHome")
+.addEventListener("click", function() {
+
+  document.getElementById("withdrawView")
+    .classList.add("hidden");
+
+  document.getElementById("homeView")
+    .classList.remove("hidden");
+
+});
+
+/* FORM VALIDATION */
+
+document.getElementById("withdrawForm")
+.addEventListener("submit", function(e) {
+
+  e.preventDefault();
+
+  const account =
+    document.getElementById("accountNumber").value.trim();
+
+  const confirm =
+    document.getElementById("confirmAccount").value.trim();
+
+  const ifsc =
+    document.getElementById("ifsc").value.trim().toUpperCase();
+
+  const amount =
+    Number(document.getElementById("withdrawAmount").value);
+
+  if (account !== confirm) {
+    alert("Account numbers do not match!");
     return;
   }
 
-  const holder = prompt("Account Holder Name डालें:");
-  if (!holder) return;
+  if (!/^[A-Z]{4}0[A-Z0-9]{6}$/.test(ifsc)) {
+    alert("Please enter valid IFSC code!");
+    return;
+  }
 
-  const account = prompt("Bank Account Number डालें:");
-  if (!account) return;
+  if (!Number.isFinite(amount) || amount <= 0) {
+    alert("Enter valid amount!");
+    return;
+  }
 
-  const ifsc = prompt("IFSC Code डालें:");
-  if (!ifsc) return;
+  alert("Details validated. Payment system is not connected yet.");
 
-  alert("Details collected. अभी असली withdrawal submit नहीं हुई है।");
 });
-
+  
 
 /* =========================
    PLAN BUTTONS
