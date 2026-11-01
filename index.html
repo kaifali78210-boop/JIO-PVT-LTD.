@@ -541,32 +541,327 @@ footer{
 }
 
 
-/* Desktop */
-@media(min-width:650px){
+/* =================================
+   RESPONSIVE MOBILE APP DESIGN
+================================= */
 
-  body{
-    max-width:480px;
-    margin:auto;
-    border-left:1px solid #393000;
-    border-right:1px solid #393000;
+html {
+  width: 100%;
+  min-width: 0;
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  margin: 0 auto;
+  overflow-x: hidden;
+}
+
+.container,
+.account-main {
+  width: 100%;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+img,
+video,
+iframe {
+  max-width: 100%;
+  height: auto;
+}
+
+/* MOBILE DESIGN */
+
+@media screen and (max-width: 650px) {
+
+  body {
+    font-size: 15px;
+    padding-bottom: 76px;
+  }
+
+  header {
+    padding: 14px 16px;
+  }
+
+  .brand {
+    font-size: 20px;
+    gap: 8px;
+  }
+
+  .logo {
+    font-size: 32px;
+  }
+
+  .account-top {
+    font-size: 12px;
+  }
+
+  /* Top navigation */
+
+  .topnav {
+    display: none;
+  }
+
+  /* Main container */
+
+  .container,
+  .account-main {
+    width: 100%;
+    padding: 12px;
+  }
+
+  .box {
+    padding: 16px;
+    border-radius: 14px;
+  }
+
+  /* Home */
+
+  .hero {
+    padding: 20px 12px 24px;
+  }
+
+  .important {
+    font-size: 15px;
+    padding: 11px 14px;
+  }
+
+  .note {
+    padding: 19px 15px;
+    border-radius: 18px;
+  }
+
+  .note h2 {
+    font-size: 23px;
+  }
+
+  .note p {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  .tower {
+    font-size: 70px;
+  }
+
+  /* Action buttons */
+
+  .home-actions {
+    padding: 20px 12px;
+  }
+
+  .action {
+    font-size: 19px;
+    padding: 17px 13px;
+    border-radius: 17px;
+    border-width: 2px;
+    gap: 8px;
+  }
+
+  .action-icon,
+  .arrow {
+    font-size: 27px;
+  }
+
+  /* Features */
+
+  .features {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    padding: 18px 8px;
+  }
+
+  .feature {
+    padding: 12px 5px;
+    border: 1px solid #574600;
+    border-radius: 10px;
+  }
+
+  .feature p {
+    font-size: 12px;
+  }
+
+  /* Plans */
+
+  .tabs {
+    gap: 8px;
+  }
+
+  .tab {
+    font-size: 13px;
+    padding: 13px 5px;
+  }
+
+  .plan {
+    padding: 16px;
+    border-radius: 15px;
+  }
+
+  .plan h3 {
+    font-size: 19px;
+  }
+
+  .plan p {
+    font-size: 14px;
+  }
+
+  .plan .btn {
+    min-height: 46px;
+  }
+
+  /* Account */
+
+  #accountView {
+    min-height: calc(100vh - 80px);
+  }
+
+  .account-profile {
+    padding: 16px 12px;
+    gap: 12px;
+    border-radius: 17px;
+  }
+
+  .account-logo {
+    width: 65px;
+    height: 65px;
+    min-width: 65px;
+    font-size: 23px;
+  }
+
+  .account-details h2 {
+    font-size: 20px;
+  }
+
+  .account-details p {
+    font-size: 13px;
+  }
+
+  .earning-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 9px;
+  }
+
+  .earning-card {
+    min-width: 0;
+    min-height: 105px;
+    padding: 10px 7px;
+    gap: 7px;
+    border-radius: 13px;
+  }
+
+  .earning-icon {
+    width: 37px;
+    height: 37px;
+    min-width: 37px;
+    font-size: 17px;
+  }
+
+  .earning-info h3 {
+    font-size: 10px;
+  }
+
+  .earning-info strong {
+    font-size: 19px;
+  }
+
+  .account-action {
+    min-height: 78px;
+    padding: 12px;
+    border-radius: 14px;
+  }
+
+  .account-action .action-content b {
+    font-size: 17px;
+  }
+
+  /* Bottom app navigation */
+
+  .bottomnav {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: 999;
+    display: flex;
+    padding: 7px 5px calc(7px + env(safe-area-inset-bottom));
+    background: #111318;
+    border-top: 1px solid #806500;
+    box-shadow: 0 -4px 15px #0008;
+  }
+
+  .bottomnav button {
+    flex: 1;
+    min-width: 0;
+    min-height: 52px;
+    color: #aaa;
+    font-size: 13px;
+    border-radius: 10px;
+  }
+
+  .bottomnav button.active {
+    color: #ffd000;
+    background: #29230c;
+    font-weight: bold;
+  }
+
+  button,
+  .btn {
+    touch-action: manipulation;
   }
 
 }
-</style>
-</head>
 
-<body>
+/* SMALL PHONES */
 
-<header>
-  <div class="brand">
-    <div class="logo">⬡</div>
-    <div>PROJECT <span>PORTAL</span></div>
-  </div>
+@media screen and (max-width: 360px) {
 
-  <div class="account-top" id="topEmail">
-    Please login to continue
-  </div>
-</header>
+  .brand {
+    font-size: 17px;
+  }
+
+  .note p {
+    font-size: 14px;
+  }
+
+  .action {
+    font-size: 16px;
+  }
+
+  .earning-card {
+    gap: 5px;
+    padding: 8px 5px;
+  }
+
+  .earning-info strong {
+    font-size: 17px;
+  }
+
+}
+
+/* DESKTOP */
+
+@media screen and (min-width: 651px) {
+
+  body {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .bottomnav {
+    position: sticky;
+  }
+
+}
+  
 
 
 <!-- LOGIN / REGISTER -->
